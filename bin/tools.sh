@@ -1,7 +1,6 @@
 NODE_MODULES_BIN="./node_modules/.bin"
 set -x
 clean() {
-    rm -rf "$PLUGIN_PATH"
     rm -rf dist
 }
 

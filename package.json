@@ -5,11 +5,12 @@
   "license": "MIT",
   "scripts": {
     "build": "tsc",
+    "clean": "rm -rf dist",
     "lint": "prettier \"src/**/*\"",
     "run": "node dist/index.ts",
-    "watch": "./bin/tools.sh watch",
-    "watch:source": "./bin/tools.sh watch-source",
-    "watch:server": "./bin/tools.sh watch-server",
+    "watch": "concurrently -k -p \"[{name}]\" -n \"TypeScript,Node\" -c \"cyan.bold,green.bold\" \"npm:watch:source\" \"npm:watch:server\"",
+    "watch:source": "tsc -w",
+    "watch:server": "nodemon \"dist/index.js\"",
     "ping": "curl -X GET localhost:3000"
   },
   "dependencies": {
@@ -19,6 +20,7 @@
     "@types/express": "^4.16.0",
     "concurrently": "^4.1.0",
     "nodemon": "^1.18.9",
-    "prettier": "^1.15.3"
+    "prettier": "^1.15.3",
+    "typescript": "^3.7.4"
   }
 }

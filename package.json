@@ -14,7 +14,7 @@
     "ping": "curl -X GET localhost:3000"
   },
   "dependencies": {
-    "express": "^4.16.4"
+    "express": "^4.17.3"
   },
   "devDependencies": {
     "@types/express": "^4.16.0",
